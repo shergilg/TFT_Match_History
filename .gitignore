@@ -1,0 +1,14 @@
+
+
+# This is the secret. not everything, just the API_KEY.. so adding it in the gitignore :) 
+riot_info.json
+
+# Adding the datafolder which will store the data locally, don't really need this as its obtained using API and is just stored locally :p
+# (don't need all but just incase, don't want ton of data out there :] )
+data/
+*.sqlite
+*.parquet
+*.csv
+
+
+# Rest will be added below, as I choose to hide more and more stuff :]
