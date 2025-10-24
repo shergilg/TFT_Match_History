@@ -5,6 +5,7 @@ riot_info.json
 
 # Adding the datafolder which will store the data locally, don't really need this as its obtained using API and is just stored locally :p
 # (don't need all but just incase, don't want ton of data out there :] )
+__pycache__/
 data/
 *.sqlite
 *.parquet
