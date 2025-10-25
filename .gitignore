@@ -16,3 +16,7 @@ data/
 
 # after cloning the repo on MacOs, I got this folder that I don't want to see in the repo:
 .DS_Store
+
+# Started using VSCode for Copoilot, so ignoring its settings folder too:
+# VSCode settings folder
+.vscode/
