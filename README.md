@@ -6,7 +6,9 @@ You'll need the API_KEY for this to work. To obtain the API_KEY, go to https://d
 
 
 Current Python version: 3.12.11
+
 IDE: Sypder 6.1.0
+
 Development: On Windows and MacOs
 
 Files:
