@@ -13,3 +13,6 @@ data/
 
 
 # Rest will be added below, as I choose to hide more and more stuff :]
+
+# after cloning the repo on MacOs, I got this folder that I don't want to see in the repo:
+.DS_Store
