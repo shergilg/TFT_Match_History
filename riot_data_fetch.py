@@ -1,11 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from reading_riot_info import load_settings
-import requests as rq
+from reading_riot_info import load_settings # Just loading my settings from the reading_riot_info.py
+import requests as rq # to send request to the Riot API
+import time # time to create delays
 
 
 # loading settings:
 s = load_settings()
+
+class RateLimit(Exception): # this is so I don't run into ratelimit...
+    pass
+
+
+
 
 def platform_host() -> str:
     return f"https://{s.region_summoner}.api.riotgames.com"
@@ -25,6 +32,12 @@ riot_url_to_get_my_account = riot_acc_url(game_name="Roronoa", tag_line="8728")
 
 request_to_riot_api = rq.get(riot_url_to_get_my_account)
 print(request_to_riot_api) # YAAAAASSSSSS...... I AM GETTING HTTP code 200 WOOOHOOOO
+
+
+if request_to_riot_api.status_code == 200:
+    summoner_data_json = request_to_riot_api.json() # Checking if the summoner data is coming through
+
+print(summoner_data_json)
 
 
 
