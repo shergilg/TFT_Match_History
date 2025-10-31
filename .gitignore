@@ -1,7 +1,9 @@
 
 
-# This is the secret. not everything, just the API_KEY.. so adding it in the gitignore :) 
+# My secret API key file, don't want this to be public
 riot_info.json
+# My file with my info
+my_text
 
 # Adding the datafolder which will store the data locally, don't really need this as its obtained using API and is just stored locally :p
 # (don't need all but just incase, don't want ton of data out there :] )
