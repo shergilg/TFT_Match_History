@@ -1,7 +1,17 @@
 # TFT_Match_History
  This will fetch the data from recent TFT matches and clean/organize it nicely
  
- 
+Update(Nov 8th 2025)
+What infomration a person may want:
+1. Their own S-Tier comps,
+    -- Can be S, A, B, etc...
+2. Maybe comps to avoid, comps to go?
+3. Their own S-Tier Augments
+4. Augments to avoid?
+5. Challengers S-Tier comps.
+
+
+
 You'll need the API_KEY for this to work. To obtain the API_KEY, go to https://developer.riotgames.com/ and request an API_KEY :) 
 
 
