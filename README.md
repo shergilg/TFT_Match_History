@@ -1,17 +1,18 @@
 # TFT_Match_History
  This will fetch the data from recent TFT matches and clean/organize it nicely
  
-
+----
 Update(Jan 7th 2026)
-
+----
 Adding a new editable diagram and png of the diagram to easily show others & understand the workflow in the future:
 see `docs/obsidian/01 - Story Map.canvas` (open with Obsidian software)
 
 
 
-
+-----
 Update(Nov 8th 2025)
-What infomration a person may want:
+-----
+What information a person may want:
 1. Their own S-Tier comps,
     -- Can be S, A, B, etc...
 2. Maybe comps to avoid, comps to go?
