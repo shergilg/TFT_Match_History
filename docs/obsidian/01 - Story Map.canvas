@@ -1,0 +1,27 @@
+{
+	"nodes":[
+		{"id":"79b6fa1d170180fa","type":"text","text":"# INPUT\n\nRiot ID (GameName#TagLine)\nAn example: Roronoa#8728","x":-803,"y":-533,"width":503,"height":113},
+		{"id":"ffd2d11eceac1f40","type":"text","text":"# Read Configurations\n\nLoad API_Key & Regions from riot_info.json","x":-803,"y":-360,"width":503,"height":113},
+		{"id":"16b2799d143e4b9e","type":"text","text":"# Prepare API Requests\n\nUse the API key + regions to send requests to Riot","x":-803,"y":-180,"width":503,"height":113},
+		{"id":"288bd073b7e7414d","type":"text","text":"# Convert Riot ID into PUUID\n\nInput: Riot ID (eg. Roronoa#8728)\nOutput: PUUID (a long string player id)","x":-803,"y":0,"width":503,"height":113},
+		{"id":"c4ef5dac745e42c3","type":"text","text":"# Use PUUID to get match IDs\n\nInput: PUUID\nOutput: List of match IDs as text","x":-803,"y":180,"width":503,"height":113},
+		{"id":"5e28cd7d2ad8118c","type":"text","text":"# Check Match Ids in the Cache\n\nInput: Match IDs from Riot API\nOutput: Only new Match IDs + start time","x":-803,"y":406,"width":503,"height":113},
+		{"id":"b915ca94c737b281","type":"text","text":"- If match ID already saved > skip\n- If last ingest time exists > only fetch newer matches\n- After saving > update cache (IDs + timestamp)","x":-140,"y":380,"width":320,"height":165},
+		{"id":"3f4161a5e3f45a83","type":"text","text":"# Use Match Ids to get Match Details\n\nInput: Match IDs + last ingest time\nOutput: For each Match ID, fetch Match Data(Json data)","x":-803,"y":646,"width":503,"height":113},
+		{"id":"3c1baecdc14baa26","type":"text","text":"# Save Match Details on Disk(for now)\n\nInput: Match Data Json file format\nOutput: None, Save/Append the data into JsonL file on disk\n(data/bronze/tft_matches.jsonl)","x":-803,"y":846,"width":503,"height":157},
+		{"id":"0f6f8d2ebe98afd5","type":"text","text":"# Update Cache(from last ingest point)\n\nInput: New match IDs + newest match time (ms)\nOutput: None, update seen match ids and the new time for a given Puuid\n(seen_match_ids.txt and _last_ingest.json)","x":-803,"y":1086,"width":503,"height":180},
+		{"id":"f407707d61bb15f5","x":-105,"y":774,"width":250,"height":301,"type":"text","text":"What is getting saved on disk?\n- *tft_matches.jsonl*: match details(one per line).\n\t- This can be a huge file\n- *seen_matches.ids.txt*: IDs already saved\n- *_last_ingest.json*: newest match time"}
+	],
+	"edges":[
+		{"id":"2d2d554ac15d5488","fromNode":"5e28cd7d2ad8118c","fromSide":"right","toNode":"b915ca94c737b281","toSide":"left"},
+		{"id":"8b88a09c1a367d7e","fromNode":"79b6fa1d170180fa","fromSide":"bottom","toNode":"ffd2d11eceac1f40","toSide":"top"},
+		{"id":"365407689c6d3ea2","fromNode":"ffd2d11eceac1f40","fromSide":"bottom","toNode":"16b2799d143e4b9e","toSide":"top","label":"Use API Key + Region info"},
+		{"id":"b4af3a9f6c0d5e21","fromNode":"16b2799d143e4b9e","fromSide":"bottom","toNode":"288bd073b7e7414d","toSide":"top","label":"Make request to Riot API for PUUID"},
+		{"id":"b49ee0ca952ec60b","fromNode":"288bd073b7e7414d","fromSide":"bottom","toNode":"c4ef5dac745e42c3","toSide":"top","label":"PUUID"},
+		{"id":"cfc227eb90819950","fromNode":"c4ef5dac745e42c3","fromSide":"bottom","toNode":"5e28cd7d2ad8118c","toSide":"top","label":"Match IDs"},
+		{"id":"b60fa4f2c12293ee","fromNode":"5e28cd7d2ad8118c","fromSide":"bottom","toNode":"3f4161a5e3f45a83","toSide":"top","label":"Only the new Match IDs\n\n"},
+		{"id":"0b00f4a0f4dafb7e","fromNode":"3f4161a5e3f45a83","fromSide":"bottom","toNode":"3c1baecdc14baa26","toSide":"top","label":"Match Data(JSON)"},
+		{"id":"29dff2d760a962f9","fromNode":"3c1baecdc14baa26","fromSide":"bottom","toNode":"0f6f8d2ebe98afd5","toSide":"top","label":"New Match Ids + New match time"},
+		{"id":"107e1ec81f241221","fromNode":"3c1baecdc14baa26","fromSide":"right","toNode":"f407707d61bb15f5","toSide":"left"}
+	]
+}
